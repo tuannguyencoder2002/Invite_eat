@@ -104,37 +104,35 @@ body {
 
 @media (max-width: 768px) {
     .food-image {
-        width: 45vw;
-        max-width: 350px;
-       
+        width: 35vw;
+        max-width: 280px;
     }
     
     .food-left {
-        top: 10%;
-        left: -5%;
+        top: 8%;
+        left: -12%;
     }
     
     .food-right {
-        top: 10%;
-        right: -5%;
+        top: 8%;
+        right: -12%;
     }
 }
 
 @media (max-width: 480px) {
     .food-image {
-        width: 50vw;
-        max-width: 280px;
-       
+        width: 30vw;
+        max-width: 220px;
     }
     
     .food-left {
-        top: 8%;
-        left: -8%;
+        top: 5%;
+        left: -15%;
     }
     
     .food-right {
-        top: 8%;
-        right: -8%;
+        top: 5%;
+        right: -15%;
     }
 }
 
@@ -518,7 +516,7 @@ body {
     
     .envelope {
         transform: none;
-        margin: 10px;
+        margin: 5px;
     }
     
     .envelope:hover {
@@ -546,7 +544,7 @@ body {
     }
     
     .promo-image {
-        max-width: 400px;
+        max-width: 350px;
     }
     
     .love-button {
@@ -557,18 +555,43 @@ body {
 
 @media (max-width: 480px) {
     .container {
-        padding: 10px;
+        padding: 5px;
+    }
+    
+    .envelope {
+        margin: 3px;
     }
     
     .envelope-body {
-        padding: 20px 15px;
+        padding: 15px 10px;
     }
     
     .title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     
     .invitation-content {
+        padding: 12px;
+    }
+    
+    .date-info h2 {
+        font-size: 1.1rem;
+    }
+    
+    .restaurant-info {
+        padding: 15px;
+    }
+    
+    .restaurant-info h3 {
+        font-size: 1rem;
+    }
+    
+    .restaurant-info p {
+        font-size: 0.85rem;
+    }
+    
+    .message {
+        font-size: 0.9rem;
         padding: 15px;
     }
     
@@ -581,6 +604,6 @@ body {
     }
     
     .promo-image {
-        max-width: 300px;
+        max-width: 280px;
     }
 }
