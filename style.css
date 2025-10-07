@@ -1,0 +1,586 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 50%, #e8f5e8 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background food images */
+.background-food {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.food-image {
+    position: absolute;
+    width: 45vw;
+    max-width: 600px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.food-left {
+    top: 15%;
+    left: 0%;
+    transform: rotate(-15deg);
+}
+
+.food-right {
+    top: 15%;
+    right: 0%;
+    transform: rotate(15deg);
+}
+
+.food-image:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1440px) {
+    .food-image {
+        width: 42vw;
+        max-width: 500px;
+    }
+    
+    .food-left {
+        top: 14%;
+        left: -1%;
+    }
+    
+    .food-right {
+        top: 14%;
+        right: -1%;
+    }
+}
+
+@media (max-width: 1366px) {
+    .food-image {
+        width: 41vw;
+        max-width: 450px;
+        
+    }
+    
+    .food-left {
+        top: 13%;
+        left: -2%;
+    }
+    
+    .food-right {
+        top: 13%;
+        right: -2%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .food-image {
+        width: 40vw;
+        max-width: 400px;
+       
+    }
+    
+    .food-left {
+        top: 12%;
+        left: -3%;
+    }
+    
+    .food-right {
+        top: 12%;
+        right: -3%;
+    }
+}
+
+@media (max-width: 768px) {
+    .food-image {
+        width: 45vw;
+        max-width: 350px;
+       
+    }
+    
+    .food-left {
+        top: 10%;
+        left: -5%;
+    }
+    
+    .food-right {
+        top: 10%;
+        right: -5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .food-image {
+        width: 50vw;
+        max-width: 280px;
+       
+    }
+    
+    .food-left {
+        top: 8%;
+        left: -8%;
+    }
+    
+    .food-right {
+        top: 8%;
+        right: -8%;
+    }
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1;
+}
+
+/* Particles background */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 182, 193, 0.6);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+/* Main content */
+.main-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Envelope design */
+.envelope {
+    position: relative;
+    background: linear-gradient(145deg, #64b5f6, #90caf9);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(100, 181, 246, 0.3);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: all 0.3s ease;
+    max-width: 800px;
+    width: 100%;
+}
+
+.envelope:hover {
+    transform: perspective(1000px) rotateY(0deg) scale(1.02);
+    box-shadow: 0 25px 50px rgba(100, 181, 246, 0.4);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid #1976d2;
+    z-index: 3;
+}
+
+.envelope-body {
+    padding: 40px 30px;
+    background: linear-gradient(145deg, #fff, #f8f9fa);
+    border-radius: 15px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.envelope-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #64b5f6, #90caf9, #64b5f6);
+}
+
+/* Letter content */
+.letter-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #1976d2;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(25, 118, 210, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.typing-text {
+    margin-bottom: 30px;
+}
+
+.greeting {
+    font-size: 1.2rem;
+    color: #666;
+    font-style: italic;
+    opacity: 0;
+    animation: typewriter 3s ease-in-out forwards;
+}
+
+@keyframes typewriter {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.invitation-content {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1s ease-out 1s both;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.date-info h2 {
+    color: #1976d2;
+    font-size: 1.8rem;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+.restaurant-info {
+    margin: 25px 0;
+    padding: 25px;
+    background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+    border-radius: 15px;
+    border-left: 5px solid #1976d2;
+}
+
+.restaurant-info h3 {
+    color: #1976d2;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.restaurant-info p {
+    color: #636e72;
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.message {
+    margin: 30px 0;
+    padding: 25px;
+    background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+    border-radius: 15px;
+    color: #2d3436;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    text-align: center;
+    border: 2px solid #4caf50;
+}
+
+.promo-image-container {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.promo-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.promo-image:hover {
+    transform: scale(1.05);
+}
+
+.balloons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.balloon {
+    font-size: 2.5rem;
+    animation: balloonFloat 2s ease-in-out infinite;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.balloon:hover {
+    transform: scale(1.3) translateY(-10px);
+}
+
+.balloon:nth-child(1) { animation-delay: 0s; }
+.balloon:nth-child(2) { animation-delay: 0.3s; }
+.balloon:nth-child(3) { animation-delay: 0.6s; }
+.balloon:nth-child(4) { animation-delay: 0.9s; }
+.balloon:nth-child(5) { animation-delay: 1.2s; }
+.balloon:nth-child(6) { animation-delay: 1.5s; }
+.balloon:nth-child(7) { animation-delay: 1.8s; }
+.balloon:nth-child(8) { animation-delay: 2.1s; }
+
+@keyframes balloonFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+}
+
+/* Colorful balloon styles */
+.balloon-red {
+    filter: hue-rotate(0deg) saturate(1.5);
+}
+
+.balloon-blue {
+    filter: hue-rotate(240deg) saturate(1.5);
+}
+
+.balloon-green {
+    filter: hue-rotate(120deg) saturate(1.5);
+}
+
+.balloon-yellow {
+    filter: hue-rotate(60deg) saturate(1.5);
+}
+
+.balloon-purple {
+    filter: hue-rotate(300deg) saturate(1.5);
+}
+
+.balloon-orange {
+    filter: hue-rotate(30deg) saturate(1.5);
+}
+
+.balloon-pink {
+    filter: hue-rotate(320deg) saturate(1.5);
+}
+
+.balloon-cyan {
+    filter: hue-rotate(180deg) saturate(1.5);
+}
+
+/* Floating balloons */
+.floating-balloons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-balloon {
+    position: absolute;
+    font-size: 2.2rem;
+    animation: floatBalloon 10s linear infinite;
+}
+
+.floating-balloon:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.floating-balloon:nth-child(2) {
+    left: 15%;
+    animation-delay: 1.5s;
+}
+
+.floating-balloon:nth-child(3) {
+    left: 25%;
+    animation-delay: 3s;
+}
+
+.floating-balloon:nth-child(4) {
+    left: 35%;
+    animation-delay: 4.5s;
+}
+
+.floating-balloon:nth-child(5) {
+    left: 45%;
+    animation-delay: 6s;
+}
+
+.floating-balloon:nth-child(6) {
+    left: 55%;
+    animation-delay: 7.5s;
+}
+
+.floating-balloon:nth-child(7) {
+    left: 65%;
+    animation-delay: 9s;
+}
+
+.floating-balloon:nth-child(8) {
+    left: 75%;
+    animation-delay: 10.5s;
+}
+
+@keyframes floatBalloon {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .envelope {
+        transform: none;
+        margin: 10px;
+    }
+    
+    .envelope:hover {
+        transform: scale(1.02);
+    }
+    
+    .invitation-content {
+        padding: 20px;
+    }
+    
+    .date-info h2 {
+        font-size: 1.3rem;
+    }
+    
+    .restaurant-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .message {
+        font-size: 1rem;
+    }
+    
+    .balloon {
+        font-size: 2rem;
+    }
+    
+    .promo-image {
+        max-width: 400px;
+    }
+    
+    .love-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .envelope-body {
+        padding: 20px 15px;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .invitation-content {
+        padding: 15px;
+    }
+    
+    .balloons {
+        gap: 10px;
+    }
+    
+    .balloon {
+        font-size: 1.8rem;
+    }
+    
+    .promo-image {
+        max-width: 300px;
+    }
+}
